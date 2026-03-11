@@ -137,21 +137,20 @@
     </div>
 
     <script>
-        // Dados extraídos da sua imagem
         const layout = [
-            ["iago", "giulia", "Guilherme", "jose", "Alexandre", "Raul"],
-            ["Fylipe", "lucas", "sofia", "helena", "Helena", "Maria Luísa"],
-            ["Gustavo", "Augusto", "felipe", "nicolas", "vanessa", "Vinícius"],
-            ["João Pedro", "Gabriel vi", "Kaio oliveira", "fred", "Livia", "Melissa"],
-            ["Bernardo", "José Vinicius", "Gabriel Leonel", "Kaio D", "Hoffman", "Thiago"],
-            ["Ricardo", "José Renato", "Matheus", "", "", ""],
-            ["Vitor", "Eric", "Moreira", "", "Joao guedes", "Arthur alexandre"]
+            ["vitor","erik","José Vinicius", "Vinicius Moreira", "PROFESSOR","PROFESSOR"],
+            ["iago", "giulia", "Guilherme", "jose","Matheus", "Alexandre"],
+            ["Fylipe", "lucas", "sofia", "Helena2", "Helena", "Maria Luísa"],
+            ["felipe", "nicolas", "João Pedro", "Gabriel vi", "vanessa", "Vinícius"],
+            ["Gustavo", "Augusto", "", "Kaio D", "Livia", "Melissa"],
+            ["Hoffman", "Thiago", "", "José Renato", "fred", "Kaio oliveira"],
+            ["","","","","Bernardo", "Gabriel Leonel"]
         ];
+
 
         const mapaElement = document.getElementById('mapa');
         const listaFaltasElement = document.getElementById('lista-faltas');
 
-        // Estado dos alunos: 0 = não verificado, 1 = presente, 2 = ausente
         let estados = [];
 
         function renderizar() {
@@ -172,7 +171,6 @@
                     div.className = 'aluno';
                     div.innerText = nome;
                     
-                    // Aplica cores baseadas no estado
                     if (estados[index] === 1) div.classList.add('status-presente');
                     if (estados[index] === 2) {
                         div.classList.add('status-ausente');
@@ -184,12 +182,10 @@
                 });
             });
 
-            // Atualiza lista de faltas
             listaFaltasElement.innerText = faltas.length > 0 ? faltas.join(', ') : "Todos presentes.";
         }
 
         function alternarEstado(idx) {
-            // Ciclo: Neutro -> Presente -> Ausente -> Neutro
             if (!estados[idx]) estados[idx] = 1;
             else if (estados[idx] === 1) estados[idx] = 2;
             else estados[idx] = 0;
@@ -204,7 +200,6 @@
             }
         }
 
-        // Inicializa
         renderizar();
     </script>
 </body>
